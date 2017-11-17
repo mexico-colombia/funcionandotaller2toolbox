@@ -6,73 +6,71 @@
     android:layout_height="match_parent"
     tools:context="com.example.cristian.mytoolbox.Traductor">
 
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="41dp"
+        android:text="Traduction / Traducción"
+        android:textAlignment="center"
+        android:textSize="30dp" />
+
     <EditText
         android:id="@+id/ETpalabra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="33dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Insert a word / Inserta una palabra"
-        android:gravity="center"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:id="@+id/btn_EtoI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/ETpalabra"
-        android:layout_marginTop="90dp"
-        android:text="Spanish to English / Español a ingles"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:id="@+id/btn_ItoE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="English to spanish / Ingles a Español"
-        android:layout_below="@+id/btn_EtoI"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:textSize="30dp"
-        android:text="Traduction / Traducción"
-        android:layout_below="@+id/btn_ItoE"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/txtresult"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_below="@+id/textView17"
-        android:layout_alignParentBottom="true" />
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Insert a word / Inserta una palabra"
+        android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/txtalmacenar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/botones"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ETpalabra"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
-        android:visibility="visible"
-        android:text="" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_ItoE"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btn_EtoI"
+            android:layout_weight="1"
+            android:text="English to spanish / Ingles a Español" />
+
+        <Button
+            android:id="@+id/btn_EtoI"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/ETpalabra"
+            android:layout_weight="1"
+            android:text="Spanish to English / Español a ingles" />
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/botones"
+        android:layout_weight="1" />
+
 </RelativeLayout>

@@ -9,4 +9,7 @@
     <string name="title_activity_cronometro">Cronometro</string>
     <string name="title_activity_temporizador">Temporizador</string>
     <string name="title_activity_reloj__mundial">Reloj_Mundial</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

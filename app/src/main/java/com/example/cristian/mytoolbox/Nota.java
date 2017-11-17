@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.cristian.mytoolbox.Base_De_Datos.Conexion;
+
 public class Nota extends AppCompatActivity implements View.OnClickListener {
 
     EditText EdT, EdC;
@@ -20,17 +22,20 @@ public class Nota extends AppCompatActivity implements View.OnClickListener {
     String Cargar;
     TextView txt;
 
-    private AdminSQLiteOpenHelper admin;
-    private SQLiteDatabase bd;
-    private ContentValues registro;
-    private Cursor fila;
+
+    private SQLiteDatabase db;
+    private EditText titulo,contenido;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nota);
-
-
-        admin = new AdminSQLiteOpenHelper(this, vars.bd, null, vars.version);
+        titulo = findViewById(R.id.txttitulo);
+        contenido = findViewById(R.id.txtcotenido);
+        Save =  findViewById(R.id.Save);
+        Save.setOnClickListener(this);
+        Cancel = findViewById(R.id.Cance);
+        Cancel.setOnClickListener(this);
+   /*     admin = new AdminSQLiteOpenHelper(this, vars.bd, null, vars.version);
         bd = admin.getWritableDatabase();
 
         try {
@@ -73,7 +78,7 @@ public class Nota extends AppCompatActivity implements View.OnClickListener {
         } else {
             Toast.makeText(Nota.this, "Alerta no programada", Toast.LENGTH_SHORT).show();
 
-        }
+        }*/
     }
 
     @Override
@@ -85,6 +90,7 @@ public class Nota extends AppCompatActivity implements View.OnClickListener {
             switch (select) {
 
                 case R.id.Save:
+                    /*
 
                     registro = new ContentValues();
                     registro.put("encabezado", EdT.getText().toString());
@@ -95,17 +101,35 @@ public class Nota extends AppCompatActivity implements View.OnClickListener {
 
 
                     Toast.makeText(Nota.this, "Nota Guardada", Toast.LENGTH_SHORT).show();
-                    startActivity(v1);
+                    startActivity(v1);*/
+
+
+                    try {
+                        Conexion conexion = new Conexion(getApplicationContext(),"db_nota",null,1);
+                        conexion.getWritableDatabase();
+
+                        db = conexion.getWritableDatabase();
+                        db.execSQL("INSERT INTO nota (titulo,contenido) VALUES ('"+titulo.getText().toString().trim()+"','"+contenido.getText().toString().trim()+"')" );
+                        titulo.setText(null);
+                        contenido.setText(null);
+
+                        Toast.makeText(this, "Nota agreagada correctamente ", Toast.LENGTH_SHORT).show();
+
+                    }catch (Exception e){
+                        Toast.makeText(this, ""+e, Toast.LENGTH_SHORT).show();
+                    }
                     break;
 
                 case R.id.Cance:
+                    Intent main = new Intent(getApplicationContext(),Notas.class);
                     Toast.makeText(Nota.this, "Nota Cancelada", Toast.LENGTH_SHORT).show();
-                    startActivity(v1);
+                    startActivity(main);
                     break;
 
             }
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
         }
+
     }
 }

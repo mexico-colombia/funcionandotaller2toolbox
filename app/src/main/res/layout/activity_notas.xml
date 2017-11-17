@@ -21,134 +21,17 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/textViewApp" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btnnotas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewApp"
+        android:text="Agregar Una Nueva Nota" />
+
+    <ListView
+        android:id="@+id/lista"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/textViewApp">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/nota1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"
-                    android:textSize="20dp"/>
-
-                <EditText
-                    android:id="@+id/Edit1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contenido"
-                    android:textSize="20dp"/>
-
-                <TextView
-                    android:id="@+id/nota2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"
-                    android:textSize="20dp"/>
-
-                <EditText
-                    android:id="@+id/Edit2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contenido"
-                    android:textSize="20dp"/>
-
-                <TextView
-                    android:id="@+id/nota3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"
-                    android:textSize="20dp"/>
-
-                <EditText
-                    android:id="@+id/Edit3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contenido"
-                    android:textSize="20dp"/>
-
-                <TextView android:id="@+id/nota4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"
-                    android:textSize="20dp"/>
-
-                <EditText
-                    android:id="@+id/Edit4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contenido"
-                    android:textSize="20dp"/>
-
-                <TextView
-                    android:id="@+id/nota5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"
-                    android:textSize="20dp"/>
-
-                <EditText
-                    android:id="@+id/Edit5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contenido"
-                    android:textSize="20dp"/>
-
-                <TextView
-                    android:id="@+id/nota6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"
-                    android:textSize="20dp"/>
-
-                <EditText
-                    android:id="@+id/Edit6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contenido"
-                    android:textSize="20dp"/>
-
-                <TextView
-                    android:id="@+id/nota7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"
-                    android:textSize="20dp"/>
-
-                <EditText
-                    android:id="@+id/Edit7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contenido"
-                    android:textSize="20dp"/>
-
-                <TextView
-                    android:id="@+id/nota8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Titulo"
-                    android:textSize="20dp"/>
-
-                <EditText
-                    android:id="@+id/Edit8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contenido"
-                    android:textSize="20dp"/>
-
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+        android:layout_below="@+id/btnnotas" />
 
 </RelativeLayout>

@@ -190,15 +190,15 @@
 
     <TextView
         android:id="@+id/textView20"
-        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView19"
         android:layout_alignEnd="@+id/textView14"
-        android:layout_alignRight="@+id/textView14"
-        android:text="Reloj"
         android:layout_alignLeft="@+id/imageButton8"
-        android:layout_alignStart="@+id/imageButton8" />
+        android:layout_alignRight="@+id/textView14"
+        android:layout_alignStart="@+id/imageButton8"
+        android:gravity="center"
+        android:text="Grafica" />
 
     <TextView
         android:id="@+id/textView2"

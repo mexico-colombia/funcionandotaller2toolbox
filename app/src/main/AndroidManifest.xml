@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cristian.mytoolbox">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -51,7 +53,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Dibujo" />
         <activity android:name=".Notas" />
-        <activity android:name=".Nota"></activity>
+        <activity android:name=".Nota" />
+        <activity android:name=".DetallaNotas"></activity>
     </application>
 
 </manifest>

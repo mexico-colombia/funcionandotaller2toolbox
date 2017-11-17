@@ -15,6 +15,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,11 @@ import java.util.ArrayList;
  * Created by Cristian on 13/11/2017.
  */
 
-public class PaintView extends View {
+public class PaintView extends View implements IPaint{
+    private ViewPaint.PaintObjet paintObjet = ViewPaint.PaintObjet.LAPIZ;
+    private LinearLayout linearLayout;
+    private int color = Color.BLUE;
+
     public static int BRUSH_SIZE = 10;
     public static final int DEFAULT_COLOR = Color.RED;
     public static final int DEFAULT_BG_COLOR = Color.WHITE;
@@ -167,5 +172,34 @@ public class PaintView extends View {
 
         }
         return true;
+    }
+
+    @Override
+    public void onTouch(MotionEvent v) {
+
+    }
+
+    public ViewPaint.PaintObjet getPaintObjet() {
+        return paintObjet;
+    }
+
+    public void setPaintObjet(ViewPaint.PaintObjet paintObjet) {
+        this.paintObjet = paintObjet;
+    }
+
+    public LinearLayout getLinearLayout() {
+        return linearLayout;
+    }
+
+    public void setLinearLayout(LinearLayout linearLayout) {
+        this.linearLayout = linearLayout;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 }

@@ -3,224 +3,205 @@ package com.example.cristian.mytoolbox;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Calculadora extends AppCompatActivity implements View.OnClickListener {
+import java.util.regex.Pattern;
 
-    boolean decimal = false;
-    boolean suma = false;
-    boolean resta = false;
-    boolean multiplicacion = false;
-    boolean division = false;
-    Double[] number = new Double[20];
-    Double resultado;
-    boolean potencia = false;
-    boolean raiz = false;
+public class Calculadora extends AppCompatActivity  {
+
+    private TextView _screen;
+    private String display = "";
+    private String operador = "";
+    private String resultado = "";
+    private Button btnNumero0, btnNumero1, btnNumero2, btnNumero3, btnNumero4, btnNumero5, btnNumero6, btnNumero7, btnNumero8, btnNumero9, limpiar,igual,suma,resta,division,multiplicacion;
+
+
+
+
+    // Creo las vistas
+    private View.OnClickListener onClickNumber = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            ClickEnNumero(view);
+        }
+    };
+
+    private View.OnClickListener onClickOperator = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            ClickEnOperador(view);
+        }
+    };
+
+    private View.OnClickListener onClickClear = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            ClickEnClear(view);
+        }
+    };
+
+    private View.OnClickListener onClickigual = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            ClickEnIgual(view);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculadora);
 
-        //Numeros
-        Button n0 = (Button)findViewById(R.id.Boton_0);
-        n0.setOnClickListener(this);
-        Button n1 = (Button)findViewById(R.id.Boton_1);
-        n1.setOnClickListener(this);
-        Button n2 = (Button)findViewById(R.id.Boton_2);
-        n2.setOnClickListener(this);
-        Button n3 = (Button)findViewById(R.id.Boton_3);
-        n3.setOnClickListener(this);
-        Button n4 = (Button)findViewById(R.id.Boton_4);
-        n4.setOnClickListener(this);
-        Button n5 = (Button)findViewById(R.id.Boton_5);
-        n5.setOnClickListener(this);
-        Button n6 = (Button)findViewById(R.id.Boton_6);
-        n6.setOnClickListener(this);
-        Button n7 = (Button)findViewById(R.id.Boton_7);
-        n7.setOnClickListener(this);
-        Button n8 = (Button)findViewById(R.id.Boton_8);
-        n8.setOnClickListener(this);
-        Button n9 = (Button)findViewById(R.id.Boton_9);
-        n9.setOnClickListener(this);
+        //Instancio, para Reconocer el id del xml
+        _screen = (TextView)findViewById(R.id.textView);
+        btnNumero0 = (Button) findViewById(R.id.btn0);
+        btnNumero1 = (Button) findViewById(R.id.btn1);
+        btnNumero2 = (Button) findViewById(R.id.btn2);
+        btnNumero3 = (Button) findViewById(R.id.btn3);
+        btnNumero4 = (Button) findViewById(R.id.btn4);
+        btnNumero5 = (Button) findViewById(R.id.btn5);
+        btnNumero6 = (Button) findViewById(R.id.btn6);
+        btnNumero7 = (Button) findViewById(R.id.btn7);
+        btnNumero8 = (Button) findViewById(R.id.btn8);
+        btnNumero9 = (Button) findViewById(R.id.btn9);
 
-        //Operaciones
-        Button punto = (Button)findViewById(R.id.Boton_punto);
-        punto.setOnClickListener(this);
-        Button suma = (Button)findViewById(R.id.Boton_Suma);
-        suma.setOnClickListener(this);
-        Button resta = (Button)findViewById(R.id.Boton_Resta);
-        resta.setOnClickListener(this);
-        Button multiplicacion = (Button)findViewById(R.id.Boton_Multiplicacion);
-        multiplicacion.setOnClickListener(this);
-        Button division = (Button)findViewById(R.id.Boton_Division);
-        division.setOnClickListener(this);
-        Button potencia = (Button)findViewById(R.id.Boton_Potencia);
-        potencia.setOnClickListener(this);
-        Button raiz = (Button)findViewById(R.id.Boton_Raiz);
-        raiz.setOnClickListener(this);
+        limpiar = (Button) findViewById(R.id.btnClear);
+        igual = (Button) findViewById(R.id.btnEqual);
+        suma = (Button) findViewById(R.id.btnPlus);
+        resta = (Button) findViewById(R.id.btnMinus);
+        multiplicacion = (Button) findViewById(R.id.btnMult);
+        division = (Button) findViewById(R.id.btnDiv);
 
-        //Graficas
-        Button parabola = (Button)findViewById(R.id.Boton_Parabola);
-        parabola.setOnClickListener(this);
-        Button recta = (Button)findViewById(R.id.Boton_Recta);
-        recta.setOnClickListener(this);
 
-        //Procesos
-        Button resultado = (Button)findViewById(R.id.Boton_Resultado);
-        resultado.setOnClickListener(this);
-        Button ben = (Button)findViewById(R.id.Boton_Eliminar_Numero);
-        ben.setOnClickListener(this);
-        Button bet = (Button)findViewById(R.id.Boton_Eliminar_Todo);
-        bet.setOnClickListener(this);
+        //Relaciono el evento, para Reconocer el id del xml
+        btnNumero0.setOnClickListener(onClickNumber);
+        btnNumero1.setOnClickListener(onClickNumber);
+        btnNumero2.setOnClickListener(onClickNumber);
+        btnNumero3.setOnClickListener(onClickNumber);
+        btnNumero4.setOnClickListener(onClickNumber);
+        btnNumero5.setOnClickListener(onClickNumber);
+        btnNumero6.setOnClickListener(onClickNumber);
+        btnNumero7.setOnClickListener(onClickNumber);
+        btnNumero8.setOnClickListener(onClickNumber);
+        btnNumero9.setOnClickListener(onClickNumber);
 
+        limpiar.setOnClickListener(onClickClear);
+        igual.setOnClickListener(onClickigual);
+        suma.setOnClickListener(onClickOperator);
+        resta.setOnClickListener(onClickOperator);
+        division.setOnClickListener(onClickOperator);
+        multiplicacion.setOnClickListener(onClickOperator);
+
+        _screen.setText(display);
 
     }
 
-    @Override
-    public void onClick(View view){
-        TextView screen = (TextView)findViewById(R.id.textview);
-        int select = view.getId();
-        String SaveNum = screen.getText().toString();
+    private void ActualizarPantalla(){
+        _screen.setText(display);//.setText para asignar
+    }
 
-        try {
-            switch (select) {
-
-                case R.id.Boton_0:
-                    screen.setText(SaveNum + "0");
-                    break;
-                case R.id.Boton_1:
-                    screen.setText(SaveNum + "1");
-                    break;
-                case R.id.Boton_2:
-                    screen.setText(SaveNum + "2");
-                    break;
-                case R.id.Boton_3:
-                    screen.setText(SaveNum + "3");
-                    break;
-                case R.id.Boton_4:
-                    screen.setText(SaveNum + "4");
-                    break;
-                case R.id.Boton_5:
-                    screen.setText(SaveNum + "5");
-                    break;
-                case R.id.Boton_6:
-                    screen.setText(SaveNum + "6");
-                    break;
-                case R.id.Boton_7:
-                    screen.setText(SaveNum + "7");
-                    break;
-                case R.id.Boton_8:
-                    screen.setText(SaveNum + "8");
-                    break;
-                case R.id.Boton_9:
-                    screen.setText(SaveNum + "9");
-                    break;
-                case R.id.Boton_punto:
-                    if (!decimal) {
-                        screen.setText(SaveNum + ".");
-                        decimal = true;
-                    } else {
-                        return;
-                    }
-
-                    break;
-
-                case R.id.Boton_Suma:
-                    suma = true;
-                    number[0] = Double.parseDouble(SaveNum);
-                    screen.setText("");
-                    decimal = false;
-                    break;
-                case R.id.Boton_Resta:
-                    resta = true;
-                    number[0] = Double.parseDouble(SaveNum);
-                    screen.setText("");
-                    decimal = false;
-                    break;
-                case R.id.Boton_Multiplicacion:
-                    multiplicacion = true;
-                    number[0] = Double.parseDouble(SaveNum);
-                    screen.setText("");
-                    decimal = false;
-                    break;
-                case R.id.Boton_Division:
-                    division = true;
-                    number[0] = Double.parseDouble(SaveNum);
-                    screen.setText("");
-                    decimal = false;
-                    break;
-                case R.id.Boton_Potencia:
-                    potencia = true;
-                    number[0] = Double.parseDouble(SaveNum);
-                    number[1] = Double.parseDouble(SaveNum);
-                    screen.setText("");
-                    resultado = Math.pow(number[0],number[1]);
-                    screen.setText(String.valueOf(resultado));
-                    decimal = false;
-                    break;
-                case R.id.Boton_Raiz:
-                    number[0] = Double.parseDouble(SaveNum);
-                    screen.setText("");
-                    resultado = Math.sqrt(number[0]);
-                    decimal = false;
-                    break;
+    //metodo para el evento ClickEnNumero
+    public void ClickEnNumero(View v){
+        if(resultado != ""){
+            clear();
+            ActualizarPantalla();
+        }
+        Button b = (Button) v;
+        display += b.getText();
+        ActualizarPantalla();
+    }
 
 
+    private boolean TipoOperador(char op){
+        switch (op){
+            case '+':
+            case '-':
+            case 'x':
+            case '÷':
+                return true;
+            default: return false;
+        }
+    }
 
-                case R.id.Boton_Resultado:
-                    number[1] = Double.parseDouble(SaveNum);
-                    if (suma) {
-                        resultado = number[0] + number[1];
-                        screen.setText(String.valueOf(resultado));
-                    }
-                    else if (resta){
-                        resultado = number[0] - number[1];
-                        screen.setText(String.valueOf(resultado));
-                    }
-                    else if (multiplicacion){
-                        resultado = number[0] * number[1];
-                        screen.setText(String.valueOf(resultado));
-                    }
-                    else if (division){
-                        resultado = number[0] / number[1];
-                        screen.setText(String.valueOf(resultado));
-                    }
-                    else if (potencia){
-                        screen.setText(String.valueOf(resultado));
-                    }
-                    else if (raiz){
-                        resultado = number[0] / number[1];
-                        screen.setText(String.valueOf(resultado));
-                    }
-                    decimal = false;
-                    suma = false;
-                    resta = false;
-                    multiplicacion = false;
-                    division = false;
-                    break;
 
-                case R.id.Boton_Eliminar_Numero:
-                    screen.setText(SaveNum);
-                    break;
-                case R.id.Boton_Eliminar_Todo:
-                    screen.setText("");
-                    decimal = false;
-                    break;
-                case R.id.Boton_Parabola:
-                    Intent v2 = new Intent(this,Parabola.class);
-                    startActivity(v2);
-                    break;
-                case R.id.Boton_Recta:
-                    Intent v3 = new Intent(this,Recta.class);
-                    startActivity(v3);
-                    break;
+    //metodo para el evento ClickEnOperador
+    public void ClickEnOperador(View v){
+        if(display == "") return;
+        Button b = (Button)v;
+        if(resultado != ""){
+            String _display = resultado;
+            clear();
+            display = _display;
+        }
 
+        if(operador != ""){
+            Log.d("CalcX", ""+display.charAt(display.length()-1));
+            if(TipoOperador(display.charAt(display.length()-1))){
+                display = display.replace(display.charAt(display.length()-1), b.getText().charAt(0));
+                ActualizarPantalla();
+                return;
+            }else{
+                ObtenerResultado();
+                display = resultado;
+                resultado = "";
             }
-
-        } catch  (Exception e) {
-            screen.setText("Error");}
+            operador = b.getText().toString();
+        }
+        display += b.getText();
+        operador = b.getText().toString();
+        ActualizarPantalla();
     }
+
+    private void clear(){
+        display = "";
+        operador = "";
+        resultado = "";
+    }
+
+
+    //metodo para el evento ClickEnClear
+    public void ClickEnClear(View v){
+        clear();
+        ActualizarPantalla();
+    }
+
+
+    //metodo para el evento operacion
+    private double operacion(String a, String b, String op){
+        switch (op){
+            case "+": return Double.valueOf(a) + Double.valueOf(b);
+            case "-": return Double.valueOf(a) - Double.valueOf(b);
+            case "x": return Double.valueOf(a) * Double.valueOf(b);
+            case "÷": try{
+                return Double.valueOf(a) / Double.valueOf(b);
+            }catch (Exception e){
+                Log.d("Calc", e.getMessage());
+            }
+            default: return -1;
+        }
+    }
+
+
+    //metodo para el evento ObtenerResultado
+    private boolean ObtenerResultado(){
+        if(operador == "") return false;
+        String[] operation = display.split(Pattern.quote(operador));
+        if(operation.length < 2) return false;
+        resultado = String.valueOf(operacion(operation[0], operation[1], operador));
+        return true;
+    }
+
+
+
+    //metodo para el evento ClickEnIgual
+    public void ClickEnIgual(View v){
+        if(display == "") return;
+        if(!ObtenerResultado()) return;
+        _screen.setText(display + "\n" + String.valueOf(resultado));
+    }
+
+
 }

@@ -3,29 +3,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.cristian.mytoolbox.com.example.cristian.myapplication.MainActivity$BarraDeAccion">
 
-    <item
-        android:id="@+id/Alarma"
-        android:icon="@drawable/ic_alarma"
-        android:orderInCategory="100"
-        android:title="Alarma"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/Cronometro"
-        android:icon="@drawable/ic_timer"
-        android:orderInCategory="102"
-        android:title="Cronometro"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/Temporizador"
-        android:icon="@drawable/ic_tempo"
-        android:orderInCategory="103"
-        android:title="Temporizador"
-        app:showAsAction="always" />
 
-    <item
-        android:id="@+id/Reloj_Mundial"
-        android:icon="@drawable/ic_clockworld"
-        android:orderInCategory="101"
-        android:title="Reloj Mundial"
-        app:showAsAction="always" />
 </menu>

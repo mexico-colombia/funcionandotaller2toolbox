@@ -1,26 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.example.cristian.mytoolbox.Reloj">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        android:orientation="horizontal">
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="@color/colorAccent">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/ptxIn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="P(X)Inicial"
+                android:inputType="numberDecimal|numberSigned"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:backgroundTint="@color/colorAccent"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="@color/colorAccent">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/ptyIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="P(Y)Inicial"
+                android:inputType="numberDecimal|numberSigned"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:backgroundTint="@color/colorAccent"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="@color/colorAccent">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/ptxFn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="P(X)Final"
+                android:inputType="numberDecimal|numberSigned"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:backgroundTint="@color/colorAccent"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColorHint="@color/colorAccent">
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/ptyFn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="P(Y)Final"
+                android:inputType="numberDecimal|numberSigned"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:backgroundTint="@color/colorAccent"
+                />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <include layout="@layout/content_reloj"
-        android:id="@+id/include" />
+        <Button
+            android:id="@+id/recta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/borde_redondo"
+            android:text="Recta" />
 
-</android.support.design.widget.CoordinatorLayout>
+        <Button
+            android:id="@+id/parabola"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Parabola"
+            android:background="@drawable/borde_redondo"/>
+    </LinearLayout>
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/zoomMenos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/boton_numerico"
+            android:hint="zoom-" />
+
+        <Button
+            android:id="@+id/zoomMas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="zoom+"
+            android:background="@drawable/boton_numerico"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/stateZoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Zoom: 4.5 "
+            />
+    </LinearLayout>
+</LinearLayout>

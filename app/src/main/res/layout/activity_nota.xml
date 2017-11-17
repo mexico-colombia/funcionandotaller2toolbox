@@ -6,19 +6,20 @@
     tools:context="com.example.cristian.mytoolbox.Nota">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/txttitulo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:maxLength="20"
         android:hint="Titulo"
-        android:textSize="30dp"
-        android:id="@+id/EditTi" />
+        android:maxLength="20"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:textSize="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:orientation="vertical"
-        android:layout_below="@+id/EditTi"
+        android:layout_below="@+id/txttitulo"
         android:id="@+id/linearLayout">
 
         <ScrollView
@@ -31,11 +32,11 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/txtcotenido"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:hint="Contenido de la nota"
-                    android:maxLength="100"
-                    android:id="@+id/EdiCont"/>
+                    android:maxLength="100" />
 
 
             </LinearLayout>
@@ -52,18 +53,20 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/tvAlert" />
+
     <ToggleButton
         android:id="@+id/AddAlert"
-        android:text="Agregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="false"
-        android:onClick="OnToggleClicked"
-        android:layout_below="@+id/tvAlert"
-        android:layout_alignRight="@+id/tvAlert"
         android:layout_alignEnd="@+id/tvAlert"
+        android:layout_alignRight="@+id/tvAlert"
+        android:layout_below="@+id/tvAlert"
+        android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
-        android:layout_marginEnd="38dp" />
+        android:checked="false"
+
+        android:text="Agregar"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/Save"
