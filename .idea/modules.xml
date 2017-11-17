@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Herramientasfinal.iml" filepath="$PROJECT_DIR$/Herramientasfinal.iml" />
-      <module fileurl="file://D:\Android Studio Projects\Omar\Herramientasfinal\Mytoolbox.iml" filepath="D:\Android Studio Projects\Omar\Herramientasfinal\Mytoolbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Taller 2 Funcionando.iml" filepath="$PROJECT_DIR$/Taller 2 Funcionando.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
