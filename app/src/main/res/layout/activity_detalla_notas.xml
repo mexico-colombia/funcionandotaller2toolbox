@@ -7,7 +7,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:orientation="vertical"
-    tools:context="com.example.cristian.mytoolbox.DetallaNotas">
+    tools:context="com.example.cristian.mytoolbox.com.omar.finalherramientas.DetallaNotas">
 
     <TextView
         android:id="@+id/tex"

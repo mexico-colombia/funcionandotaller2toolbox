@@ -151,7 +151,7 @@
              android:layout_weight="1"/>
       </LinearLayout>
    </LinearLayout>
-   <com.example.cristian.mytoolbox.PaintView
+   <com.omar.finalherramientas.PaintView
        android:id="@+id/PaintView"
        android:layout_width="395dp"
        android:layout_height="587dp"

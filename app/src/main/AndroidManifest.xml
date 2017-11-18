@@ -11,28 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.omar.finalherramientas.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Conversor_moneda" />
-        <activity android:name=".Conversor_unidades" />
-        <activity android:name=".Traductor" />
-        <activity android:name=".Calendario" />
-        <activity android:name=".Paint" />
-        <activity android:name=".Calculadora" />
-        <activity android:name=".Contacto" />
-        <activity android:name=".Parabola" />
-        <activity android:name=".Recta" />
+        <activity android:name="com.omar.finalherramientas.Conversor_moneda" />
+        <activity android:name="com.omar.finalherramientas.Conversor_unidades" />
+        <activity android:name="com.omar.finalherramientas.Traductor" />
+        <activity android:name="com.omar.finalherramientas.Calendario" />
+        <activity android:name="com.omar.finalherramientas.Paint" />
+        <activity android:name="com.omar.finalherramientas.Calculadora" />
+        <activity android:name="com.omar.finalherramientas.Contacto" />
+        <activity android:name="com.omar.finalherramientas.Parabola" />
+        <activity android:name="com.omar.finalherramientas.Recta" />
         <activity
-            android:name=".Reloj"
+            android:name="com.omar.finalherramientas.Reloj"
             android:label="@string/title_activity_reloj"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Alarma"
+            android:name="com.omar.finalherramientas.Alarma"
             android:label="@string/title_activity_alarma"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -40,21 +40,21 @@
             android:label="@string/title_activity_reloj_mundial"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Cronometro"
+            android:name="com.omar.finalherramientas.Cronometro"
             android:label="@string/title_activity_cronometro"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Temporizador"
+            android:name="com.omar.finalherramientas.Temporizador"
             android:label="@string/title_activity_temporizador"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Reloj_Mundial"
+            android:name="com.omar.finalherramientas.Reloj_Mundial"
             android:label="@string/title_activity_reloj__mundial"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Dibujo" />
-        <activity android:name=".Notas" />
-        <activity android:name=".Nota" />
-        <activity android:name=".DetallaNotas"></activity>
+        <activity android:name="com.omar.finalherramientas.Dibujo" />
+        <activity android:name="com.omar.finalherramientas.Notas" />
+        <activity android:name="com.omar.finalherramientas.Nota" />
+        <activity android:name="com.omar.finalherramientas.DetallaNotas"></activity>
     </application>
 
 </manifest>

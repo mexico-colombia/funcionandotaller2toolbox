@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/contenedor"
-    tools:context="com.example.cristian.mytoolbox.FragmentPaint">
+    tools:context="com.example.cristian.mytoolbox.com.omar.finalherramientas.FragmentPaint">
 
 
     <ScrollView
@@ -190,7 +190,7 @@
             </LinearLayout>
 
 
-            <com.example.cristian.mytoolbox.PaintView
+            <com.omar.finalherramientas.PaintView
                 android:id="@+id/PaintView"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"

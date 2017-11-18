@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context="com.example.cristian.mytoolbox.MainActivity">
+    tools:context="com.example.cristian.mytoolbox.com.omar.finalherramientas.MainActivity">
 
     <ImageButton
         android:id="@+id/imageButton"

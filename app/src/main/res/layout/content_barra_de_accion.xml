@@ -7,7 +7,7 @@
     android:background="#FFFF"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.cristian.mytoolbox.Alarma_Inicio"
+    tools:context="com.example.cristian.mytoolbox.com.omar.finalherramientas.Alarma_Inicio"
     tools:showIn="@layout/activity_barra_de_accion">
 
     <TextClock
